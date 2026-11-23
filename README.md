@@ -85,7 +85,7 @@ After training, you will find the trained model saved in the `checkpoints` folde
 ### Prediction
 For prediction,if your file to be tested is in FASTA format. You can place the file in the working directory and run the following command to get the prediction results:
 ```bash
-python predict.py yourfile.fasta
+python predict.py
 ```
 
 In addition, you can test your sequence as follows:
