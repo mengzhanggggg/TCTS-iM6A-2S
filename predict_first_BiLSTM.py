@@ -7,6 +7,7 @@ from utils.config import *
 from transformers import AutoTokenizer, AutoModel
 from sklearn.metrics import roc_curve, precision_recall_curve, average_precision_score, roc_auc_score
 from transformers import logging
+import matplotlib.pyplot as plt
 logging.set_verbosity_error()
 
 def caculate_metric(pred_y, labels, pred_prob):
@@ -119,23 +120,23 @@ fasta_path="data/501/501_testdata.fasta"
 
 # Loading model
 model1 = TCTS_iM6A_2L()
-model1.load_state_dict(torch.load('model/first/cv1_0.916_7.839.pkl'))
+model1.load_state_dict(torch.load('model/first/cv1_0.909_10.181.pkl'))
 model1.eval()
 
 model2 = TCTS_iM6A_2L()
-model2.load_state_dict(torch.load('model/first/cv2_0.912_7.868.pkl'))
+model2.load_state_dict(torch.load('model/first/cv2_0.918_10.058.pkl'))
 model2.eval()
 
 model3 = TCTS_iM6A_2L()
-model3.load_state_dict(torch.load('model/first/cv3_0.912_7.835.pkl'))
+model3.load_state_dict(torch.load('model/first/cv3_0.919_10.039.pkl'))
 model3.eval()
 
 model4 = TCTS_iM6A_2L()
-model4.load_state_dict(torch.load('model/first/cv4_0.917_7.863.pkl'))
+model4.load_state_dict(torch.load('model/first/cv4_0.926_10.060.pkl'))
 model4.eval()
 
 model5 = TCTS_iM6A_2L()
-model5.load_state_dict(torch.load('model/first/cv5_0.901_7.865.pkl'))
+model5.load_state_dict(torch.load('model/first/cv5_0.918_10.420.pkl'))
 model5.eval()
 
 model_list = [model1, model2, model3, model4, model5]
@@ -161,4 +162,3 @@ print(label_pred)
 
 metric, roc_data, prc_data = caculate_metric(label_pred, label_real, pred_prob)
 print(metric)
-
