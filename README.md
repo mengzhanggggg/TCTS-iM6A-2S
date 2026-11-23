@@ -53,7 +53,7 @@ pip install -r requirements.txt
 
 ### Quick Start
 
-After cloning or entering the project directory, use `train.py` for training and `predict_first.py` / `predict_system.py` for prediction. Test is split by system type (circulatory, digestive, nervous, respiratory, and urinary) for separate models and checkpoints.
+After cloning or entering the project directory, use `train.py` for training and `predict_first.py` / `predict_system.py` for prediction. Test is split by stage and system type (circulatory, digestive, nervous, respiratory, and urinary) for separate models and checkpoints.
 
 
 ### Training
@@ -85,7 +85,12 @@ After training, you will find the trained model saved in the `checkpoints` folde
 ### Prediction
 For prediction,if your file to be tested is in FASTA format. You can place the file in the working directory and run the following command to get the prediction results:
 ```bash
-python predict.py
+python predict_first_BiLSTM.py
+python predict_Circulatory.py
+python predict_Digestive.py
+python predict_Nervous.py
+python predict_Respiratory.py
+python predict_Urinary.py
 ```
 
 In addition, you can test your sequence as follows:
